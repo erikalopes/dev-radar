@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const routes = require('./routes');
+const cors = require('cors');
 
 const app = express();
 
@@ -16,6 +17,7 @@ mongoose.connect('mongodb://admin:admin@cluster0-shard-00-00-xx6zq.mongodb.net:2
  * Body: request.body (Dados para criação ou alteração de um registro)
  */
 
+ app.use(cors());
 app.use(express.json());
 app.use(routes);
 
